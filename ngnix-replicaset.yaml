@@ -1,28 +1,26 @@
 apiVersion: apps/v1
-kind: Deployment
+kind: ReplicaSet
 metadata:
-  creationTimestamp: null
   labels:
-    app: nginx-deploy
-  name: nginx-deploy
+    app: nginx-app
+  name: nginx-replicaset
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: nginx-deploy
-  strategy: {}
+      app: nginx-app
   template:
     metadata:
       labels:
-        app: nginx-deploy
+        app: nginx-app
     spec:
       containers:
-      - image: nginx:1.19.2
+      - image: nginx:1.19.1
         name: nginx
         resources:
           limits:
             cpu: "0.5"
             memory: 256Mi
           requests:
-            cpu: "0.25"
+            cpu: 0.25
             memory: 128Mi
