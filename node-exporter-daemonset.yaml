@@ -31,4 +31,4 @@ spec: # Especificação do objeto
           path: /proc # Caminho do volume no host
       - name: sys # Nome do volume
         hostPath: # Tipo de volume
-          path: /sys # Caminho do volume no host
+          path: /sys # Caminho do volume no host  
