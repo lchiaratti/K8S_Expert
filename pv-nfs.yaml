@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  labels:
+    storage: nsf
+  name: meu-pv-nsf
+spec:
+  capacity:
+    storage: 1Gi
+  accessModes:
+    - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Retain
+  hostPath:
+    server: 192.168.0.219  # ip do k8s
+    path: "/mnt/nsf"
+  storageClassName: giropops
